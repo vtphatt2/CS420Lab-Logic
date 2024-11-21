@@ -188,7 +188,7 @@ nephew(Person, AuntUncle) :- male(Person), parent(Parent, Person), sibling(Paren
 :- write('Q5: Who is deceased among Elizabeth II, Diana, and Philip? '),
    (findall(DeceasedPerson, (deceased(DeceasedPerson), member(DeceasedPerson, [elizabeth_ii, diana, philip])), Deceased), 
     list_to_set(Deceased, UniqueDeceased), 
-    (UniqueDeceased = [] -> write('not found'), nl; write(UniqueDeceased), nl)).
+    (UniqueDeceased = [] -> write('No one'), nl; write(UniqueDeceased), nl)).
 
 :- write('Q6: Who is deceased: Elizabeth II, Philip, or Charles? '),
    (findall(DeceasedPerson, (deceased(DeceasedPerson), member(DeceasedPerson, [elizabeth_ii, philip, charles])), Deceased), 
@@ -202,7 +202,7 @@ nephew(Person, AuntUncle) :- male(Person), parent(Parent, Person), sibling(Paren
 
 :- write('Q8: Who is the male among Charles, Anne, and Harry? '),
    (findall(MalePerson, (member(MalePerson, [charles, anne, harry]), male(MalePerson)), Males), 
-    (Males = [] -> write('not found'), nl; write(Males), nl)).
+    (Males = [] -> write('No'), nl; write(Males), nl)).
 
 :- write('Q9: Is Andrew male? '),
    (male(andrew) -> write('Yes'), nl; write('No'), nl).
@@ -317,7 +317,7 @@ nephew(Person, AuntUncle) :- male(Person), parent(Parent, Person), sibling(Paren
 
 :- write('Q35: How many sons does Philip have? '),
    (findall(Son, son(Son, philip), Sons), 
-    (Sons = [] -> write('not found'), nl; length(Sons, Count), write(Count), nl)).
+    (Sons = [] -> write('0'), nl; length(Sons, Count), write(Count), nl)).
 
 :- write('Q36: Which son of Diana is also the son of Charles? '),
    (findall(Son, (son(Son, diana), son(Son, charles)), Sons), 
@@ -330,11 +330,11 @@ nephew(Person, AuntUncle) :- male(Person), parent(Parent, Person), sibling(Paren
 
 :- write('Q38: Are there any daughters of Philip? '),
    (findall(Daughter, daughter(Daughter, philip), Daughters), 
-    (Daughters = [] -> write('not found'), nl; write('Yes'), nl)).
+    (Daughters = [] -> write('No'), nl; write('Yes'), nl)).
 
 :- write('Q39: How many daughters does Diana have? '),
    (findall(Daughter, daughter(Daughter, diana), Daughters), 
-    (Daughters = [] -> write('not found'), nl; length(Daughters, Count), write(Count), nl)).
+    (Daughters = [] -> write('0'), nl; length(Daughters, Count), write(Count), nl)).
 
 % Test Cases for grandparent(GP, GC)
 :- write('Q40: Who are the grandparents of William? '),
@@ -347,7 +347,7 @@ nephew(Person, AuntUncle) :- male(Person), parent(Parent, Person), sibling(Paren
 
 :- write('Q42: How many grandparents does Zara have? '),
    (findall(GP, grandparent(GP, zara), Grandparents), 
-    (Grandparents = [] -> write('not found'), nl; length(Grandparents, Count), write(Count), nl)).
+    (Grandparents = [] -> write('0'), nl; length(Grandparents, Count), write(Count), nl)).
 
 % Test Cases for grandmother(GM, GC)
 :- write('Q43: Which grandmother is related to William? '),
@@ -360,7 +360,7 @@ nephew(Person, AuntUncle) :- male(Person), parent(Parent, Person), sibling(Paren
 
 :- write('Q45: How many grandmothers does Zara have? '),
    (findall(GM, grandmother(GM, zara), Grandmothers), 
-    (Grandmothers = [] -> write('not found'), nl; length(Grandmothers, Count), write(Count), nl)).
+    (Grandmothers = [] -> write('0'), nl; length(Grandmothers, Count), write(Count), nl)).
 
 % Test Cases for grandfather(GF, GC)
 :- write('Q46: Who is the grandfather of William? '),
@@ -369,11 +369,11 @@ nephew(Person, AuntUncle) :- male(Person), parent(Parent, Person), sibling(Paren
 
 :- write('Q47: How many grandfathers does Beatrice have? '),
    (findall(GF, grandfather(GF, beatrice), Grandfathers), 
-    (Grandfathers = [] -> write('not found'), nl; length(Grandfathers, Count), write(Count), nl)).
+    (Grandfathers = [] -> write('0'), nl; length(Grandfathers, Count), write(Count), nl)).
 
 :- write('Q48: Are there any grandfathers of Zara? '),
    (findall(GF, grandfather(GF, zara), Grandfathers), 
-    (Grandfathers = [] -> write('not found'), nl; write('Yes'), nl)).
+    (Grandfathers = [] -> write('No'), nl; write('Yes'), nl)).
 
 % Test Cases for grandchild(GC, GP)
 :- write('Q49: How many grandchildren does Elizabeth II have? '),
@@ -395,11 +395,11 @@ nephew(Person, AuntUncle) :- male(Person), parent(Parent, Person), sibling(Paren
 
 :- write('Q53: Are there any grandsons of Diana? '),
    (findall(GS, grandson(GS, diana), Grandsons), 
-    (Grandsons = [] -> write('not found'), nl; write('Yes'), nl)).
+    (Grandsons = [] -> write('No'), nl; write('Yes'), nl)).
 
 :- write('Q54: How many grandsons does Philip have? '),
    (findall(GS, grandson(GS, philip), Grandsons), 
-    (Grandsons = [] -> write('not found'), nl; length(Grandsons, Count), write(Count), nl)).
+    (Grandsons = [] -> write('0'), nl; length(Grandsons, Count), write(Count), nl)).
 
 % Test Cases for granddaughter(GD, GP)
 :- write('Q55: Which granddaughter is related to Elizabeth II? '),
@@ -412,7 +412,7 @@ nephew(Person, AuntUncle) :- male(Person), parent(Parent, Person), sibling(Paren
 
 :- write('Q57: How many granddaughters does Philip have? '),
    (findall(GD, granddaughter(GD, philip), Granddaughters), 
-    (Granddaughters = [] -> write('not found'), nl; length(Granddaughters, Count), write(Count), nl)).
+    (Granddaughters = [] -> write('0'), nl; length(Granddaughters, Count), write(Count), nl)).
 
 % Test Cases for sibling(Person1, Person2)
 :- write('Q58: Are Charles and Anne siblings? '),
@@ -420,7 +420,7 @@ nephew(Person, AuntUncle) :- male(Person), parent(Parent, Person), sibling(Paren
 
 :- write('Q59: How many siblings does Edward have? '),
    (findall(Sibling, sibling(edward, Sibling), Siblings), 
-    (Siblings = [] -> write('not found'), nl; length(Siblings, Count), write(Count), nl)).
+    (Siblings = [] -> write('0'), nl; length(Siblings, Count), write(Count), nl)).
 
 :- write('Q60: Who are the siblings of Charles? '),
    (findall(Sibling, sibling(charles, Sibling), Siblings), 
@@ -433,11 +433,11 @@ nephew(Person, AuntUncle) :- male(Person), parent(Parent, Person), sibling(Paren
 
 :- write('Q62: How many brothers does Beatrice have? '),
    (findall(Brother, brother(Brother, beatrice), Brothers), 
-    (Brothers = [] -> write('not found'), nl; length(Brothers, Count), write(Count), nl)).
+    (Brothers = [] -> write('0'), nl; length(Brothers, Count), write(Count), nl)).
 
 :- write('Q63: Are there any brothers of Sarah? '),
    (findall(Brother, brother(Brother, sarah), Brothers), 
-    (Brothers = [] -> write('not found'), nl; write('Yes'), nl)).
+    (Brothers = [] -> write('No'), nl; write('Yes'), nl)).
 
 % Test Cases for sister(Person, Sibling)
 :- write('Q64: Who is the sister of William? '),
@@ -446,7 +446,7 @@ nephew(Person, AuntUncle) :- male(Person), parent(Parent, Person), sibling(Paren
 
 :- write('Q65: How many sisters does Charles have? '),
    (findall(Sister, sister(Sister, charles), Sisters), 
-    (Sisters = [] -> write('not found'), nl; length(Sisters, Count), write(Count), nl)).
+    (Sisters = [] -> write('0'), nl; length(Sisters, Count), write(Count), nl)).
 
 :- write('Q66: Who are the sisters of Edward? '),
    (findall(Sister, sister(Sister, edward), Sisters), 
@@ -467,11 +467,11 @@ nephew(Person, AuntUncle) :- male(Person), parent(Parent, Person), sibling(Paren
 
 :- write('Q70: Are there any aunts of Beatrice? '),
    (findall(Aunt, aunt(Aunt, beatrice), Aunts), 
-    (Aunts = [] -> write('not found'), nl; write('Yes'), nl)).
+    (Aunts = [] -> write('No'), nl; write('Yes'), nl)).
 
 :- write('Q71: How many aunts does Sienna have? '),
    (findall(Aunt, aunt(Aunt, sienna), Aunts), 
-    (Aunts = [] -> write('not found'), nl; length(Aunts, Count), write(Count), nl)).
+    (Aunts = [] -> write('0'), nl; length(Aunts, Count), write(Count), nl)).
 
 % Test Cases for uncle(Person, NieceNephew)
 :- write('Q72: Who is the uncle of Beatrice? '),
@@ -488,11 +488,11 @@ nephew(Person, AuntUncle) :- male(Person), parent(Parent, Person), sibling(Paren
 
 :- write('Q75: Are there any uncles of Beatrice? '),
    (findall(Uncle, uncle(Uncle, beatrice), Uncles), 
-    (Uncles = [] -> write('not found'), nl; write('Yes'), nl)).
+    (Uncles = [] -> write('No'), nl; write('Yes'), nl)).
 
 :- write('Q76: How many uncles does Sienna have? '),
    (findall(Uncle, uncle(Uncle, sienna), Uncles), 
-    (Uncles = [] -> write('not found'), nl; length(Uncles, Count), write(Count), nl)).
+    (Uncles = [] -> write('0'), nl; length(Uncles, Count), write(Count), nl)).
 
 % Test Cases for niece(Person, AuntUncle)
 :- write('Q77: Who is the niece of Anne? '),
@@ -509,11 +509,11 @@ nephew(Person, AuntUncle) :- male(Person), parent(Parent, Person), sibling(Paren
 
 :- write('Q80: How many nieces does Anne have? '),
    (findall(Niece, niece(Niece, anne), Nieces), 
-    (Nieces = [] -> write('not found'), nl; length(Nieces, Count), write(Count), nl)).
+    (Nieces = [] -> write('0'), nl; length(Nieces, Count), write(Count), nl)).
 
 :- write('Q81: Are there any nieces of Sarah? '),
    (findall(Niece, niece(Niece, sarah), Nieces), 
-    (Nieces = [] -> write('not found'), nl; write('Yes'), nl)).
+    (Nieces = [] -> write('No'), nl; write('Yes'), nl)).
 
 % Test Cases for nephew(Person, AuntUncle)
 :- write('Q82: Who is the nephew of Anne? '),
@@ -530,8 +530,8 @@ nephew(Person, AuntUncle) :- male(Person), parent(Parent, Person), sibling(Paren
 
 :- write('Q85: How many nephews does Anne have? '),
    (findall(Nephew, nephew(Nephew, anne), Nephews), 
-    (Nephews = [] -> write('not found'), nl; length(Nephews, Count), write(Count), nl)).
+    (Nephews = [] -> write('0'), nl; length(Nephews, Count), write(Count), nl)).
 
 :- write('Q86: Are there any nephews of Sarah? '),
    (findall(Nephew, nephew(Nephew, sarah), Nephews), 
-    (Nephews = [] -> write('not found'), nl; write('Yes'), nl)).
+    (Nephews = [] -> write('No'), nl; write('Yes'), nl)).
