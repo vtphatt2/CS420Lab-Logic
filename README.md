@@ -3,3 +3,6 @@ A two-week take-home coding assignment for the CS420 Artificial Intelligence cou
 
 # Requirement
 The detailed requirements and guidelines for this assignment are provided as: [View the PDF](LAB.pdf)
+
+# Report
+Please click here: [View the PDF](report.pdf)
